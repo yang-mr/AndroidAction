@@ -7,7 +7,7 @@
     tools:context="com.example.yw.action.MainActivity"
     android:orientation="vertical">
     <LinearLayout
-        android:weightSum="5"
+        android:weightSum="4"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -29,18 +29,18 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
-    </LinearLayout>
-    <LinearLayout
-        android:weightSum="5"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
         <Button
             android:id="@+id/bt_sharedPreferences"
             android:text="SharedPreferences"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <Button
             android:text="Window"
             android:layout_weight="1"
@@ -49,6 +49,18 @@
         <Button
             android:id="@+id/bt_glide"
             android:text="Glide"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bt_rxjava"
+            android:text="RxJava"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bt_retrofit"
+            android:text="Retrofit"
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />

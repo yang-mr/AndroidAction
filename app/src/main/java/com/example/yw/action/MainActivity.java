@@ -22,6 +22,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_ipc).setOnClickListener(this);
         findViewById(R.id.bt_sharedPreferences).setOnClickListener(this);
         findViewById(R.id.bt_glide).setOnClickListener(this);
+        findViewById(R.id.bt_rxjava).setOnClickListener(this);
+        findViewById(R.id.bt_retrofit).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -86,7 +88,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(this, SharedPreferencesActivity.class));
                 break;
             case R.id.bt_glide:
-                // view.getLeft() view.getTop() event.getX() event.getRawX() 等
+                startActivity(new Intent(this, GlideActivity.class));
+                break;
+            case R.id.bt_rxjava:
+                startActivity(new Intent(this, GlideActivity.class));
+                break;
+            case R.id.bt_retrofit:
                 startActivity(new Intent(this, GlideActivity.class));
                 break;
         }

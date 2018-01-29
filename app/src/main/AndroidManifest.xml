@@ -9,19 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.yw.action.IpcActivity" />
-        <activity android:name="com.example.yw.action.SharedPreferencesActivity" />
-        <activity android:name="com.example.yw.action.MainActivity"></activity>
-        <activity android:name="com.example.yw.action.GetLeftActivity" />
-        <activity android:name="com.example.yw.action.WindowActivity">
-        </activity>
-        <activity android:name="com.example.yw.action.glide.GlideActivity">
+        <activity android:name=".IpcActivity" />
+        <activity android:name=".SharedPreferencesActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".GetLeftActivity" />
+        <activity android:name=".WindowActivity"></activity>
+        <activity android:name=".glide.GlideActivity"></activity>
+        <activity android:name=".rxjava.RxJavaActivity"></activity>
     </application>
 
 </manifest>

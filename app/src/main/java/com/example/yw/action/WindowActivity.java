@@ -3,6 +3,7 @@ package com.example.yw.action;
 import android.graphics.PixelFormat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -59,15 +60,24 @@ public class WindowActivity extends AppCompatActivity implements View.OnClickLis
          WindowManagerGlobal.addView() 通过创建ViewRootImpl来增加window进而通过WindowSession, 内部会通过
          WMS类实现Window的添加。即添加过程是一次ipc的调用；
          */
-
         TextView textView = new TextView(this);
         textView.setBackgroundColor(getColor(R.color.colorAccent));
         textView.setText("test addwindow");
+        textView.setOnKeyListener(new View.OnKeyListener() { // fix back
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if(keyEvent.getKeyCode() == KeyEvent.KEYCODE_BACK){
+                    //捕获返回键
+                    WindowActivity.this.finish();
+                }
+                return true;
+            }
+        });
 
         int width = WindowManager.LayoutParams.WRAP_CONTENT;
         int height = WindowManager.LayoutParams.WRAP_CONTENT;
         int flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
-                | WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+                /*| WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE*/;
         int type = 0;
         int format = PixelFormat.TRANSPARENT;
 
@@ -105,6 +115,28 @@ public class WindowActivity extends AppCompatActivity implements View.OnClickLis
         // windowManager.updateViewLayout(textView, layoutParams);
 
         Toast.makeText(this, "test ", Toast.LENGTH_SHORT).show();
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        switch (event.getKeyCode()) {
+            case KeyEvent.KEYCODE_BACK:
+                break;
+        }
+        return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK){
+            //捕获返回键
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

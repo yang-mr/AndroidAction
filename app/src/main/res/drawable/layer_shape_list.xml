@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item >
+        <shape>
+            <solid android:color="#E4E4E4"></solid>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+    <item android:left="2dp" android:top="2dp"
+        android:bottom="2dp" android:right="2dp">
+        <selector>
+            <item android:state_pressed="true">
+                <shape>
+                    <solid android:color="#FFFFFF"></solid>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/colorAccent"></solid>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+
+        </selector>
+    </item>
+</layer-list>
+
+<!--layer_list 实现button的阴影效果
+1.layer-list作为根节点  结合selector 节点实现点击效果
+2.当然也可以用selector作为根节点实现相同的效果 但是要重复一些代码
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item >
+        <shape>
+            <solid android:color="#E4E4E4"></solid>
+            <corners android:radius="20dp"/>
+        </shape>
+    </item>
+    <item android:left="2dp" android:top="2dp"
+        android:bottom="2dp" android:right="2dp">
+        <selector>
+            <item android:state_pressed="true">
+                <shape>
+                    <solid android:color="#FFFFFF"></solid>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+            <item>
+                <shape>
+                    <solid android:color="@color/colorAccent"></solid>
+                    <corners android:radius="20dp"/>
+                </shape>
+            </item>
+
+        </selector>
+    </item>
+</layer-list>
+
+-->

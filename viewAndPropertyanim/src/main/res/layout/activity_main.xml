@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.viewanim.MainActivity">
+    <Button
+        android:text="ValueAnimator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_ValueAnimator"/>
+    <Button
+        android:text="补间动画"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt_Tween"/>
+    <Button
+        android:text="测试动画"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bt"/>
+    <Button
+        android:text="animatorSet实例"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/set_bt"/>
+    <TextView
+        android:background="@color/colorAccent"
+        android:text="我是动画啊"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:id="@+id/tv_test" />
+    <com.example.viewanim.MyView
+        android:id="@+id/myview"
+        android:background="@color/colorAccent"
+        android:visibility="gone"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+
+    <com.example.viewanim.PropertyViewsHolderText
+        android:id="@+id/propertyViewsHolderText"
+        android:background="@color/colorAccent"
+        android:layout_width="100dp"
+        android:layout_height="100dp" />
+</LinearLayout>

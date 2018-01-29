@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    tools:context="com.example.yw.action.MainActivity"
+    android:orientation="vertical">
+    <LinearLayout
+        android:weightSum="5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_getleft"
+            android:text="getLeft,getX等"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bt_window"
+            android:text="Window"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bt_ipc"
+            android:text="ipcAndBinder"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:weightSum="5"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_sharedPreferences"
+            android:text="SharedPreferences"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:text="Window"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bt_glide"
+            android:text="Glide"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+<!--
+    &lt;!&ndash;<com.example.yw.viewdemo.MyView&ndash;&gt;
+        &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;
+        &lt;!&ndash;android:layout_height="match_parent" />&ndash;&gt;
+   &lt;!&ndash; <Button
+        android:id="@+id/bt_test"
+        android:text="test layer_list"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/layer_shape_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />&ndash;&gt;
+
+    <com.example.yw.viewdemo.MyLayout
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="我是第一行"
+            android:padding="20px"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorAccent"
+            android:layout_width="600px"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="我是第一行"
+            android:padding="20px"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        &lt;!&ndash;<TextView
+            android:text="我是第一行"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:background="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />&ndash;&gt;
+
+    </com.example.yw.viewdemo.MyLayout>-->
+</LinearLayout>

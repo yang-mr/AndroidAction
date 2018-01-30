@@ -1,6 +1,7 @@
 package com.example.yw.action;
 
 import android.app.Application;
+import android.content.Intent;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
@@ -17,5 +18,6 @@ public class MyApp extends Application {
         super.onCreate();
 
         Logger.addLogAdapter(new AndroidLogAdapter());
+
     }
 }

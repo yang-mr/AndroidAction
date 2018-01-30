@@ -3,13 +3,16 @@
     package="com.example.yw.action">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="com.example.yw.action.MyApp"
         android:theme="@style/AppTheme">
         <activity android:name=".IpcActivity" />
         <activity android:name=".SharedPreferencesActivity" />
@@ -24,7 +27,18 @@
         <activity android:name=".WindowActivity" />
         <activity android:name=".glide.GlideActivity" />
         <activity android:name=".rxjava.RxJavaActivity" />
-        <activity android:name=".NetChangeActivity"></activity>
+        <activity android:name=".NetChangeActivity" />
+       <!-- <receiver android:name=".broadcastReceiver.MyBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>-->
+        <service
+            android:name=".broadcastReceiver.MyNetChangeService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE.textservice" />
+            </intent-filter>
+        </service>
     </application>
-
 </manifest>

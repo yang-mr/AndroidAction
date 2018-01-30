@@ -65,6 +65,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
     </LinearLayout>
+    <LinearLayout
+        android:weightSum="4"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/bt_net_change"
+            android:text="监听网络变化"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 <!--
     &lt;!&ndash;<com.example.yw.viewdemo.MyView&ndash;&gt;
         &lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;

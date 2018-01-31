@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.yw.action.glide.GlideActivity;
+import com.example.yw.action.rxjava.RxJavaActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     @Override
@@ -92,7 +93,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(this, GlideActivity.class));
                 break;
             case R.id.bt_rxjava:
-                startActivity(new Intent(this, GlideActivity.class));
+                startActivity(new Intent(this, RxJavaActivity.class));
                 break;
             case R.id.bt_retrofit:
                 startActivity(new Intent(this, GlideActivity.class));

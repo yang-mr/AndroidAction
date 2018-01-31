@@ -10,6 +10,13 @@ import org.reactivestreams.Subscriber;
 import java.util.List;
 
 import io.reactivex.Observable;
+import io.reactivex.ObservableEmitter;
+import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.Observer;
+import io.reactivex.Scheduler;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 public class RxJavaActivity extends AppCompatActivity {
     /**
@@ -30,33 +37,16 @@ public class RxJavaActivity extends AppCompatActivity {
     }
 
     private void test1() {
-        Observable.create(new Observable.OnSubscribe<List<User>>() {
+        Observable.create(new ObservableOnSubscribe<List<User>>() {
             @Override
-            public void call(Subscriber<? super List<User>> subscriber) {
-                List<User> userList = null;
+            public void subscribe(ObservableEmitter<List<User>> observableEmitter) throws Exception {
 
-                subscriber.onNext(userList);
             }
-        }).flatMap(new Func1<List<User>, Observable<User>>() {
+        }).observeOn(Schedulers.io())
+                .subscribeOn(Schedulers.single()).subscribe(new Consumer<List<User>>() {
             @Override
-            public Observable<User> call(List<User> users) {
-                return Observable.from(users);
-            }
-        }).filter(new Func1<User, Boolean>() {
-            @Override
-            public Boolean call(User user) {
-                return user.getName().equals("小明");
-            }
-        }).map(new Func1<User, User>() {
-            @Override
-            public User call(User user) {
-                //根据小明的数据user从数据库查找出小明的父亲user2
-                return user2;
-            }
-        }).subscribe(new Action1<User>() {
-            @Override
-            public void call(User user2) {
-                //拿到谜之小明的爸爸的数据
+            public void accept(List<User> users) throws Exception {
+
             }
         });
     }

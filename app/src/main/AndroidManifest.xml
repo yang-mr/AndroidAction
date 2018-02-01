@@ -28,11 +28,13 @@
         <activity android:name=".glide.GlideActivity" />
         <activity android:name=".rxjava.RxJavaActivity" />
         <activity android:name=".NetChangeActivity" />
-       <!-- <receiver android:name=".broadcastReceiver.MyBroadcastReceiver">
+        <!--
+        <receiver android:name=".broadcastReceiver.MyBroadcastReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-        </receiver>-->
+        </receiver>
+        -->
         <service
             android:name=".broadcastReceiver.MyNetChangeService"
             android:exported="false">
@@ -40,5 +42,8 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE.textservice" />
             </intent-filter>
         </service>
+
+        <activity android:name=".rxjava.rxbus.RxBusActivity"></activity>
     </application>
+
 </manifest>

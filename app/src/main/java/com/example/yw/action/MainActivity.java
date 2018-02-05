@@ -26,6 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_rxjava).setOnClickListener(this);
         findViewById(R.id.bt_retrofit).setOnClickListener(this);
         findViewById(R.id.bt_net_change).setOnClickListener(this);
+        findViewById(R.id.bt_recyclerview).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -100,6 +101,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_net_change:
                 startActivity(new Intent(this, NetChangeActivity.class));
+                break;
+            case R.id.bt_recyclerview:
+                startActivity(new Intent(this, RecyclerDemoActivity.class));
                 break;
         }
     }

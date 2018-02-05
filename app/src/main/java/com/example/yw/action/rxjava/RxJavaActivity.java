@@ -12,13 +12,17 @@ import com.example.yw.action.rxjava.rxbus.RxBusHelper;
 import org.reactivestreams.Subscriber;
 
 import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
+import io.reactivex.ObservableSource;
 import io.reactivex.Observer;
 import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
@@ -40,6 +44,10 @@ public class RxJavaActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_rx_java);
 
         findViewById(R.id.bt_rxbus).setOnClickListener(this);
+
+        // operate ...
+        findViewById(R.id.bt_delay).setOnClickListener(this);
+        findViewById(R.id.bt_defer).setOnClickListener(this);
         test1();
     }
 
@@ -64,10 +72,62 @@ public class RxJavaActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.bt_rxbus:
                 startActivity(new Intent(this, RxBusActivity.class));
                 break;
+            case R.id.bt_delay:
+                testDelay();
+                break;
+            case R.id.bt_defer:
+                testDefer();
+                break;
         }
+    }
+
+    private void testDefer() {
+        Car car = new Car();
+        car.setName("my is after set...");
+        car.ObservableFromCar()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String o) throws Exception {
+                        com.orhanobut.logger.Logger.d(o);
+                    }
+                });
+    }
+
+    class Car {
+        private String name = "my is default";
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public Observable<String> ObservableFromCar() {
+            return Observable.defer(new Callable<ObservableSource<? extends String>>() {
+                @Override
+                public ObservableSource<String> call() throws Exception {
+                    return Observable.just(name);
+                }
+            });
+        }
+    }
+
+    private void testDelay() {
+        Observable.just("testDelay")
+                .delay(2, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<String>() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        com.orhanobut.logger.Logger.d(s);
+                    }
+                });
     }
 
     class User{
         private String name;
     }
+    
+    
 }

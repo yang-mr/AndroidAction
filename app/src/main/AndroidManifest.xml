@@ -43,7 +43,8 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".rxjava.rxbus.RxBusActivity"></activity>
+        <activity android:name=".rxjava.rxbus.RxBusActivity" />
+        <activity android:name=".RecyclerDemoActivity"></activity>
     </application>
 
 </manifest>

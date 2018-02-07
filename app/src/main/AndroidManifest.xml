@@ -47,7 +47,8 @@
         <activity android:name=".RecyclerDemoActivity" />
         <activity android:name=".java.reflect.ReflectActivity" />
         <activity android:name=".java.dynamicproxy.ProxyActivity" />
-        <activity android:name=".java.generic.GenericActivity"></activity>
+        <activity android:name=".java.generic.GenericActivity" />
+        <activity android:name=".retrofit.RetrofitActivity" />
     </application>
 
 </manifest>

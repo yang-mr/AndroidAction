@@ -46,7 +46,8 @@
         <activity android:name=".rxjava.rxbus.RxBusActivity" />
         <activity android:name=".RecyclerDemoActivity" />
         <activity android:name=".java.reflect.ReflectActivity" />
-        <activity android:name=".java.dynamicproxy.ProxyActivity"></activity>
+        <activity android:name=".java.dynamicproxy.ProxyActivity" />
+        <activity android:name=".java.generic.GenericActivity"></activity>
     </application>
 
 </manifest>

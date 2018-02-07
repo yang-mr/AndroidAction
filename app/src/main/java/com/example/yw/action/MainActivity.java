@@ -11,6 +11,7 @@ import android.widget.Button;
 
 import com.example.yw.action.glide.GlideActivity;
 import com.example.yw.action.java.dynamicproxy.ProxyActivity;
+import com.example.yw.action.java.generic.GenericActivity;
 import com.example.yw.action.rxjava.RxJavaActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -30,6 +31,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_recyclerview).setOnClickListener(this);
         findViewById(R.id.bt_refrect).setOnClickListener(this);
         findViewById(R.id.bt_动态代理).setOnClickListener(this);
+        findViewById(R.id.bt_泛型).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -113,6 +115,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_动态代理:
                 startActivity(new Intent(this, ProxyActivity.class));
+                break;
+            case R.id.bt_泛型:
+                startActivity(new Intent(this, GenericActivity.class));
                 break;
         }
     }

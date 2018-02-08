@@ -34,6 +34,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_动态代理).setOnClickListener(this);
         findViewById(R.id.bt_泛型).setOnClickListener(this);
         findViewById(R.id.bt_reflect).setOnClickListener(this);
+        findViewById(R.id.bt_okhttp).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -104,6 +105,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(this, RxJavaActivity.class));
                 break;
             case R.id.bt_retrofit:
+                startActivity(new Intent(this, RetrofitActivity.class));
+                break;
+            case R.id.bt_okhttp:
                 startActivity(new Intent(this, RetrofitActivity.class));
                 break;
             case R.id.bt_net_change:

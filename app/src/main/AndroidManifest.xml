@@ -49,6 +49,7 @@
         <activity android:name=".java.dynamicproxy.ProxyActivity" />
         <activity android:name=".java.generic.GenericActivity" />
         <activity android:name=".retrofit.RetrofitActivity" />
+        <activity android:name=".okhttp.OkhttpDemoActivity"></activity>
     </application>
 
 </manifest>

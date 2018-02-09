@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.yw.action.glide.GlideActivity;
+import com.example.yw.action.java.classloader.ClassLoaderActivity;
 import com.example.yw.action.java.dynamicproxy.ProxyActivity;
 import com.example.yw.action.java.generic.GenericActivity;
 import com.example.yw.action.java.reflect.ReflectActivity;
@@ -35,6 +36,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_泛型).setOnClickListener(this);
         findViewById(R.id.bt_reflect).setOnClickListener(this);
         findViewById(R.id.bt_okhttp).setOnClickListener(this);
+        findViewById(R.id.bt_classloader).setOnClickListener(this);
+        findViewById(R.id.bt_ssl).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -126,6 +129,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_泛型:
                 startActivity(new Intent(this, GenericActivity.class));
+                break;
+            case R.id.bt_classloader:
+                startActivity(new Intent(this, ClassLoaderActivity.class));
+                break;
+            case R.id.bt_ssl:
+                startActivity(new Intent(this, ClassLoaderActivity.class));
                 break;
         }
     }

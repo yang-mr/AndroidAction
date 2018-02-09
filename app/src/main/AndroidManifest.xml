@@ -49,7 +49,9 @@
         <activity android:name=".java.dynamicproxy.ProxyActivity" />
         <activity android:name=".java.generic.GenericActivity" />
         <activity android:name=".retrofit.RetrofitActivity" />
-        <activity android:name=".okhttp.OkhttpDemoActivity"></activity>
+        <activity android:name=".okhttp.OkhttpDemoActivity" />
+        <activity android:name=".java.classloader.ClassLoaderActivity" />
+        <activity android:name=".ssl.SslActivity"></activity>
     </application>
 
 </manifest>

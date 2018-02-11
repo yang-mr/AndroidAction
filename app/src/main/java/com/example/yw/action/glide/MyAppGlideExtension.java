@@ -8,7 +8,6 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.load.resource.gif.GifDrawable;
 import com.bumptech.glide.request.RequestOptions;
 
-import static com.example.yw.action.glide.GlideOptions.decodeTypeOf;
 
 /**
  * Created by jack
@@ -25,9 +24,9 @@ import static com.example.yw.action.glide.GlideOptions.decodeTypeOf;
      被 @GlideType 注解的静态方法用于扩展 RequestManager
  */
 
-@GlideExtension
+// @GlideExtension
 public class MyAppGlideExtension {
-    private static final int MINI_THUMB_SIZE = 100;
+   /* private static final int MINI_THUMB_SIZE = 100;
 
     private static final RequestOptions DECODE_TYPE_GIF = decodeTypeOf(GifDrawable.class).lock();
 
@@ -51,5 +50,5 @@ public class MyAppGlideExtension {
         requestBuilder
                 .transition(new DrawableTransitionOptions())
                 .apply(DECODE_TYPE_GIF);
-    }
+    }*/
 }

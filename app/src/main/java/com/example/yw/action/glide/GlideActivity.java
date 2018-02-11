@@ -120,10 +120,10 @@ public class GlideActivity extends AppCompatActivity implements View.OnClickList
                 .into(imageView);
 
         // generated api
-        GlideApp.with(this)
-                .load(uri)
-                .centerCrop()  // not requestOptions
-                .into(imageView);
+//        GlideApp.with(this)
+//                .load(uri)
+//                .centerCrop()  // not requestOptions
+//                .into(imageView);
     }
 
     /**
@@ -161,12 +161,12 @@ public class GlideActivity extends AppCompatActivity implements View.OnClickList
      */
     private void appGlideModule() {
 
-        GlideApp.with(this)   // GlideApp replace Glide
+        /*GlideApp.with(this)   // GlideApp replace Glide
                 .asGiftestType() // glideExtension glideType test
                 .load(uri)
                 .placeholder(R.drawable.dog)
                 .fitCenter()
                 .miniThumb()   // glideExtension glideOptions test
-                .into(imageView);
+                .into(imageView);*/
     }
 }

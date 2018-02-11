@@ -16,6 +16,7 @@ import com.example.yw.action.java.generic.GenericActivity;
 import com.example.yw.action.java.reflect.ReflectActivity;
 import com.example.yw.action.retrofit.RetrofitActivity;
 import com.example.yw.action.rxjava.RxJavaActivity;
+import com.example.yw.action.view.recyclerview.RecyclerDemoActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     @Override

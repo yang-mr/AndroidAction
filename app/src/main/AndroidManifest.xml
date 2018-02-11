@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".MyApp"
@@ -17,11 +18,6 @@
         <activity android:name=".IpcActivity" />
         <activity android:name=".SharedPreferencesActivity" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".GetLeftActivity" />
         <activity android:name=".WindowActivity" />
@@ -44,7 +40,12 @@
         </service>
 
         <activity android:name=".rxjava.rxbus.RxBusActivity" />
-        <activity android:name=".RecyclerDemoActivity" />
+        <activity android:name=".view.recyclerview.RecyclerDemoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".java.reflect.ReflectActivity" />
         <activity android:name=".java.dynamicproxy.ProxyActivity" />
         <activity android:name=".java.generic.GenericActivity" />

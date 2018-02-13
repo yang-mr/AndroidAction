@@ -11,7 +11,7 @@ import android.widget.FrameLayout;
 
 import com.example.fragmentdemo.pack_fragment.PackFragment;
 
-public class MainActivity extends AppCompatActivity implements PackFragment.OnClickListenrByFragment {
+public class  MainActivity extends AppCompatActivity implements PackFragment.OnClickListenrByFragment {
 
     private FrameLayout mLayout;
     @Override

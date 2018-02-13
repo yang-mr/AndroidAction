@@ -17,7 +17,13 @@
         android:theme="@style/AppTheme">
         <activity android:name=".IpcActivity" />
         <activity android:name=".SharedPreferencesActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".GetLeftActivity" />
         <activity android:name=".WindowActivity" />
         <activity android:name=".glide.GlideActivity" />
@@ -40,11 +46,6 @@
 
         <activity android:name=".rxjava.rxbus.RxBusActivity" />
         <activity android:name=".view.recyclerview.RecyclerDemoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".java.reflect.ReflectActivity" />
         <activity android:name=".java.dynamicproxy.ProxyActivity" />

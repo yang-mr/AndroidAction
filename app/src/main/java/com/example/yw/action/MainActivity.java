@@ -16,6 +16,8 @@ import com.example.yw.action.java.generic.GenericActivity;
 import com.example.yw.action.java.reflect.ReflectActivity;
 import com.example.yw.action.retrofit.RetrofitActivity;
 import com.example.yw.action.rxjava.RxJavaActivity;
+import com.example.yw.action.view.ConstraintLayout.ConstraintActivity;
+import com.example.yw.action.view.CoordinatorLayout.CoordinatorActivity;
 import com.example.yw.action.view.recyclerview.RecyclerDemoActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -140,10 +142,10 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(this, ClassLoaderActivity.class));
                 break;
             case R.id.bt_constraintlayout:
-                startActivity(new Intent(this, ClassLoaderActivity.class));
+                startActivity(new Intent(this, ConstraintActivity.class));
                 break;
             case R.id.bt_coordinatorlayout:
-                startActivity(new Intent(this, ClassLoaderActivity.class));
+                startActivity(new Intent(this, CoordinatorActivity.class));
                 break;
         }
     }

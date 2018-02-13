@@ -3,6 +3,8 @@ package com.example.yw.action.view.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.yw.action.R;
+
 public class CoordinatorActivity extends AppCompatActivity {
 
     @Override

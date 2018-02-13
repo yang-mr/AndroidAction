@@ -39,6 +39,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_okhttp).setOnClickListener(this);
         findViewById(R.id.bt_classloader).setOnClickListener(this);
         findViewById(R.id.bt_ssl).setOnClickListener(this);
+        findViewById(R.id.bt_constraintlayout).setOnClickListener(this);
+        findViewById(R.id.bt_coordinatorlayout).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -135,6 +137,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(this, ClassLoaderActivity.class));
                 break;
             case R.id.bt_ssl:
+                startActivity(new Intent(this, ClassLoaderActivity.class));
+                break;
+            case R.id.bt_constraintlayout:
+                startActivity(new Intent(this, ClassLoaderActivity.class));
+                break;
+            case R.id.bt_coordinatorlayout:
                 startActivity(new Intent(this, ClassLoaderActivity.class));
                 break;
         }

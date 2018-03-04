@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.yw.action.glide.GlideActivity;
+import com.example.yw.action.java.arithmetic.ArithmeticActivity;
 import com.example.yw.action.java.classloader.ClassLoaderActivity;
 import com.example.yw.action.java.dynamicproxy.ProxyActivity;
 import com.example.yw.action.java.generic.GenericActivity;
@@ -43,6 +44,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_ssl).setOnClickListener(this);
         findViewById(R.id.bt_constraintlayout).setOnClickListener(this);
         findViewById(R.id.bt_coordinatorlayout).setOnClickListener(this);
+        findViewById(R.id.bt_arithmetic).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -146,6 +148,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_coordinatorlayout:
                 startActivity(new Intent(this, CoordinatorActivity.class));
+                break;
+            case R.id.bt_arithmetic:
+                startActivity(new Intent(this, ArithmeticActivity.class));
                 break;
         }
     }

@@ -45,7 +45,7 @@
         </service>
 
         <activity android:name=".rxjava.rxbus.RxBusActivity" />
-        <activity android:name=".view.recyclerview.RecyclerDemoActivity"></activity>
+        <activity android:name=".view.recyclerview.RecyclerDemoActivity" />
         <activity android:name=".java.reflect.ReflectActivity" />
         <activity android:name=".java.dynamicproxy.ProxyActivity" />
         <activity android:name=".java.generic.GenericActivity" />
@@ -55,7 +55,8 @@
         <activity android:name=".ssl.SslActivity" />
         <activity android:name=".view.CoordinatorLayout.CoordinatorActivity" />
         <activity android:name=".view.ConstraintLayout.ConstraintActivity" />
-        <activity android:name=".java.generic.GenericInterfaceActivity"></activity>
+        <activity android:name=".java.generic.GenericInterfaceActivity" />
+        <activity android:name=".java.arithmetic.ArithmeticActivity"></activity>
     </application>
 
 </manifest>

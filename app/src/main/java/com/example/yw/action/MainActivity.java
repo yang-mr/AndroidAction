@@ -12,9 +12,11 @@ import android.widget.Button;
 import com.example.yw.action.glide.GlideActivity;
 import com.example.yw.action.java.arithmetic.ArithmeticActivity;
 import com.example.yw.action.java.classloader.ClassLoaderActivity;
+import com.example.yw.action.java.collection.CollectionActivity;
 import com.example.yw.action.java.dynamicproxy.ProxyActivity;
 import com.example.yw.action.java.generic.GenericActivity;
 import com.example.yw.action.java.reflect.ReflectActivity;
+import com.example.yw.action.okhttp.OkhttpDemoActivity;
 import com.example.yw.action.retrofit.RetrofitActivity;
 import com.example.yw.action.rxjava.RxJavaActivity;
 import com.example.yw.action.view.ConstraintLayout.ConstraintActivity;
@@ -45,6 +47,8 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_constraintlayout).setOnClickListener(this);
         findViewById(R.id.bt_coordinatorlayout).setOnClickListener(this);
         findViewById(R.id.bt_arithmetic).setOnClickListener(this);
+        findViewById(R.id.bt_多渠道打包).setOnClickListener(this);
+        findViewById(R.id.bt_collection).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -118,7 +122,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(new Intent(this, RetrofitActivity.class));
                 break;
             case R.id.bt_okhttp:
-                startActivity(new Intent(this, RetrofitActivity.class));
+                startActivity(new Intent(this, OkhttpDemoActivity.class));
                 break;
             case R.id.bt_net_change:
                 startActivity(new Intent(this, NetChangeActivity.class));
@@ -151,6 +155,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_arithmetic:
                 startActivity(new Intent(this, ArithmeticActivity.class));
+            case R.id.bt_多渠道打包:
+                startActivity(new Intent(this, ReleaseActivity.class));
+                break;
+            case R.id.bt_collection:
+                startActivity(new Intent(this, CollectionActivity.class));
                 break;
         }
     }

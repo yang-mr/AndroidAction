@@ -147,7 +147,19 @@
                 android:layout_height="wrap_content" />
             <Button
                 android:id="@+id/bt_arithmetic"
-                android:text="算法"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="算法" />
+
+                android:id="@+id/bt_多渠道打包"
+                android:text="多渠道打包"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/bt_collection"
+                android:text="集合Collection"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content" />

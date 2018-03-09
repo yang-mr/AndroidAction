@@ -57,6 +57,9 @@
         <activity android:name=".view.ConstraintLayout.ConstraintActivity" />
         <activity android:name=".java.generic.GenericInterfaceActivity" />
         <activity android:name=".java.arithmetic.ArithmeticActivity"></activity>
+        <activity android:name=".ReleaseActivity" />
+        <activity android:name=".okhttp.OkIoDemoActivity" />
+        <activity android:name=".java.collection.CollectionActivity"></activity>
     </application>
 
 </manifest>

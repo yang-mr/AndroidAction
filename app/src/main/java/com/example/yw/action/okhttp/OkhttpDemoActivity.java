@@ -1,7 +1,9 @@
 package com.example.yw.action.okhttp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.yw.action.R;
 
@@ -23,7 +25,19 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 
-public class OkhttpDemoActivity extends AppCompatActivity {
+/**
+ *   1、noCache()
+     对应于“no-cache”，如果出现在 响应 的头部，不是表示不允许对响应进行缓存，而是表示客户端需要与服务器进行再次验证，
+        进行一个额外的GET请求得到最新的响应；如果出现请求头部，则表示不适用缓存响应，即记性网络请求获取响应。
+
+     2、noStore()
+     对应于"no-store"，如果出现在响应头部，则表明该响应不能被缓存
+
+     ref：
+     https://www.jianshu.com/p/b32d13655be7
+ */
+
+public class OkhttpDemoActivity extends AppCompatActivity implements View.OnClickListener {
     OkHttpClient client = new OkHttpClient();
 
     @Override
@@ -31,19 +45,20 @@ public class OkhttpDemoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp_demo);
 
-        testGetOkhttp();
+        findViewById(R.id.okio).setOnClickListener(this);
+
 
         testPostOkHttp();
 
         // 基于Http的文件上传
-        testUploadFile();
+        // testUploadFile();
 
         // 缓存处理 可以针对每个request指定缓存策略 也可以使用拦截器处理缓存
         // 可以针对每个request指定缓存策略
-        testCacheByRequest();
+        // testCacheByRequest();
 
         // 可以使用拦截器处理缓存
-        testCacheByIn();
+        // testCacheByIn();
     }
 
     private void testCacheByIn() {
@@ -105,7 +120,13 @@ public class OkhttpDemoActivity extends AppCompatActivity {
                 .post(requestBody)
                 .build();
 
-        client.newCall(request);
+        Call call = client.newCall(request);
+        try {
+            call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     private void testPostOkHttp() {
@@ -120,12 +141,18 @@ public class OkhttpDemoActivity extends AppCompatActivity {
 
 
         Request request = new Request.Builder()
-                .url("")
+                .url("http://www.baidu.com")
                 .post(requestBody)
                 .build();
 
-        Call call = client.newCall(request);
-        call.enqueue(new Callback() {
+        /*Call call = client.newCall(request);
+        try {
+            call.execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+        client.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
 
@@ -138,8 +165,12 @@ public class OkhttpDemoActivity extends AppCompatActivity {
         });
     }
 
+
+
     private void testGetOkhttp() {
         Request request = new Request.Builder()
+                .url("www.baidu.com")
+                .method("GET", null)
                 .build();
         Call call = client.newCall(request);
         call.enqueue(new Callback() {
@@ -163,6 +194,15 @@ public class OkhttpDemoActivity extends AppCompatActivity {
 
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.okio:  // 记录一些io
+                startActivity(new Intent(this, OkIoDemoActivity.class));
+            break;
         }
     }
 }

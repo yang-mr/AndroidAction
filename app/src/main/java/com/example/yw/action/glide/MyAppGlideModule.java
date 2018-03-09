@@ -22,7 +22,7 @@ import java.io.File;
  * Desc:
  */
 
-// @GlideModule
+@GlideModule
 public class MyAppGlideModule extends AppGlideModule {
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {

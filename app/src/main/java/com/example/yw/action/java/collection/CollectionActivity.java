@@ -6,8 +6,12 @@ import android.os.Bundle;
 import com.example.yw.action.R;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class CollectionActivity extends AppCompatActivity {
 
@@ -24,7 +28,9 @@ public class CollectionActivity extends AppCompatActivity {
 
         testRemove();*/
 
-        testAddAll();
+        // testAddAll();
+
+        testTreeMap();
     }
 
     private static void testAddAll() {
@@ -71,5 +77,28 @@ public class CollectionActivity extends AppCompatActivity {
             data.add("data :" + i);
         }
         return data;
+    }
+
+    // test treeMap
+    /**
+     * 1. RED BLACK 树
+     */
+    private static void testTreeMap() {
+        TreeMap treeMap = new TreeMap(new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return -1;
+            }
+        });
+        treeMap.put("name", "xiaoming");
+
+        Object o = treeMap.put("age", "xiao");
+        System.out.println(o);
+    }
+
+    // test treeSet
+    private static void testTreeSet() {
+        TreeSet treeSet = new TreeSet();
+        treeSet.add("name1");
     }
 }

@@ -151,7 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="算法" />
-
+            <Button
                 android:id="@+id/bt_多渠道打包"
                 android:text="多渠道打包"
                 android:layout_weight="1"

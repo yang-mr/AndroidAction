@@ -56,10 +56,11 @@
         <activity android:name=".view.CoordinatorLayout.CoordinatorActivity" />
         <activity android:name=".view.ConstraintLayout.ConstraintActivity" />
         <activity android:name=".java.generic.GenericInterfaceActivity" />
-        <activity android:name=".java.arithmetic.ArithmeticActivity"></activity>
+        <activity android:name=".java.arithmetic.ArithmeticActivity" />
         <activity android:name=".ReleaseActivity" />
         <activity android:name=".okhttp.OkIoDemoActivity" />
-        <activity android:name=".java.collection.CollectionActivity"></activity>
+        <activity android:name=".java.collection.CollectionActivity" />
+        <activity android:name=".view.custom.CustomActivity"></activity>
     </application>
 
 </manifest>

@@ -3,3 +3,5 @@
   LocalBroadcastManager
   的异同
   BroadcastReceiver
+  
+  IntentFilter和Intent的异同

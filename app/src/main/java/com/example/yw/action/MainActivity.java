@@ -21,6 +21,7 @@ import com.example.yw.action.retrofit.RetrofitActivity;
 import com.example.yw.action.rxjava.RxJavaActivity;
 import com.example.yw.action.view.ConstraintLayout.ConstraintActivity;
 import com.example.yw.action.view.CoordinatorLayout.CoordinatorActivity;
+import com.example.yw.action.view.custom.CustomActivity;
 import com.example.yw.action.view.recyclerview.RecyclerDemoActivity;
 
 public class MainActivity extends Activity implements View.OnClickListener {
@@ -49,6 +50,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_arithmetic).setOnClickListener(this);
         findViewById(R.id.bt_多渠道打包).setOnClickListener(this);
         findViewById(R.id.bt_collection).setOnClickListener(this);
+        findViewById(R.id.bt_custom).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -160,6 +162,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_collection:
                 startActivity(new Intent(this, CollectionActivity.class));
+                break;
+            case R.id.bt_custom:
+                startActivity(new Intent(this, CustomActivity.class));
                 break;
         }
     }

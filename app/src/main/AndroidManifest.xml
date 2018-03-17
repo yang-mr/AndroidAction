@@ -60,7 +60,8 @@
         <activity android:name=".ReleaseActivity" />
         <activity android:name=".okhttp.OkIoDemoActivity" />
         <activity android:name=".java.collection.CollectionActivity" />
-        <activity android:name=".view.custom.CustomActivity"></activity>
+        <activity android:name=".view.custom.CustomActivity" />
+        <activity android:name=".java.executor_thread.ExecutorActivity"></activity>
     </application>
 
 </manifest>

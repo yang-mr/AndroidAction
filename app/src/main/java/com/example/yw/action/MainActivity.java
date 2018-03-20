@@ -14,6 +14,7 @@ import com.example.yw.action.java.arithmetic.ArithmeticActivity;
 import com.example.yw.action.java.classloader.ClassLoaderActivity;
 import com.example.yw.action.java.collection.CollectionActivity;
 import com.example.yw.action.java.dynamicproxy.ProxyActivity;
+import com.example.yw.action.java.equals_hashcode.EqualsActivity;
 import com.example.yw.action.java.executor_thread.ExecutorActivity;
 import com.example.yw.action.java.generic.GenericActivity;
 import com.example.yw.action.java.reflect.ReflectActivity;
@@ -53,6 +54,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_collection).setOnClickListener(this);
         findViewById(R.id.bt_custom).setOnClickListener(this);
         findViewById(R.id.bt_executor).setOnClickListener(this);
+        findViewById(R.id.bt_Equals).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -170,6 +172,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_executor:
                 startActivity(new Intent(this, ExecutorActivity.class));
+                break;
+            case R.id.bt_Equals:
+                startActivity(new Intent(this, EqualsActivity.class));
                 break;
         }
     }

@@ -61,7 +61,8 @@
         <activity android:name=".okhttp.OkIoDemoActivity" />
         <activity android:name=".java.collection.CollectionActivity" />
         <activity android:name=".view.custom.CustomActivity" />
-        <activity android:name=".java.executor_thread.ExecutorActivity"></activity>
+        <activity android:name=".java.executor_thread.ExecutorActivity" />
+        <activity android:name=".java.equals_hashcode.EqualsActivity"></activity>
     </application>
 
 </manifest>

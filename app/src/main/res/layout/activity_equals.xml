@@ -4,12 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yw.action.view.custom.CustomActivity">
-    <com.example.yw.action.view.custom.MyView
-        android:id="@+id/myview"
-        android:text="custom_view"
-        android:background="@color/colorAccent"
-        android:padding="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    tools:context="com.example.yw.action.java.equals_hashcode.EqualsActivity">
+
 </android.support.constraint.ConstraintLayout>

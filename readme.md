@@ -35,3 +35,55 @@
            显示数据
            3.得到PreLoaderId, PreLoader.listenData(int preLoaderId, DataListener listener)->PreLoaderPool.listenData(int id, DataListener listener) get对应id的worker，然后执行worker.listenData(DataListener listener)->state.listenData(DataListener listener)state由最近重置的StateLoadCompleted状态->worker.doSendLoadedDataToListenerWork(DataListener listener)首先将DataListener保存在dataListeners(CopyOnWriteArrayList)里面，然后执行doSendLoadedDataToListenerWork(final List<DataListener<T>> listeners)该方法里面置state为StateDone状态, 然后再执行safeListenData(List<DataListener<T>> listeners, T t)->接口回调，用户最终得到数据。
            4. activity.onDestroy()->PreLoader.destroy(int id)->PreLoaderPool.destroy(int id) remove对应的worker， 然后worker.destroy()->state.destroy()该处的state为最近设置的StateDone状态->worker.doDestroyWork()该方法里设置state为StateDestroyed状态清理一些数据;
+
+
+
+
+    一些测试工具
+        压力测试Monke
+
+        单元测试junit mockito
+            1. 依赖隔离
+            2. mock 模拟条件
+
+    内存分析工具
+        Mat
+        LeakCanary
+
+
+eventBus分析
+    
+    订阅模式
+    POSTING：发布跟订阅在同一线程，开销最小，默认的模式；
+
+    MAIN：
+    如果发布者在非ui线程，订阅者会切换到ui线程；
+
+    MAIN_ORDERED：
+    订阅者会先放到队列里，直到执行完相关逻辑代码才会处理订阅的代码。如果发布者在非ui线程，订阅者会切换到ui线程；
+    BACKGROUND
+    如果发布者在ui线程，订阅者会另开一个线程；如果发布者在非ui线程，订阅者会在当前线程；
+    ASYNC
+    订阅者都会另开一个线程
+
+    Sticky 默认为false
+    Sticky=true
+    Sticky事件只指事件消费者在事件发布之后才注册的也能接收到该事件的特殊类型。
+
+    订阅事件
+    EventBus.getDefault().register(this); // 订阅
+    
+    // 订阅回调方法
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void hand(Event01 event01) {
+        String name = event01.getName();
+    }
+
+    发布事件：
+    EventBus.getDefault().postSticky(new Event01("jack"));
+
+订阅逻辑代码分析：
+    1.通过单例模式EventBus.getDefault()得到实例eventBus, 然后通过eventBus.register(Object subscriber) 方法实现订阅, 在register方法里， 首先会通过实例得到相应的类， 然后通过(该实例是在EventBus(EventBusBuilder builder)构造方法里实例化的)subscriberMethodFinder.findSubscriberMethods(subscriberClass) 得到订阅者的所有订阅方法, 该方法里ConcurrentHashMap(实现缓存)保存类的所有订阅者方法，如果缓存中没有相应的信息，ignoreGeneratedIndex（boolean 默认是false)则调用findUsingInfo(subscriberClass), 该方法里把相关信息保存在FindState实例(通过prepareFindState() 该方法里通过FIND_STATE_POOL数组进行stateFind的缓存如果数组里面有stateFind则直接方法并把数组相应的位置的保存对象设为null, 否则就new一个, 该数组里的对象是在 下面的 2保存的)里面， 然后通过findUsingReflectionInSingleClass(FindState findState)该方法里通过反射得到所有DeclaredMethod， 然后遍历所有的方法，通过判断方法的参数个数为1， 然后再获取方法注解类是否为Subscribe，判断通过后stateFind.checkAdd(Method method, Class<?> eventType)添加到stateFind实例的anyMethodByEventType hashMap里， 该方法会检查是否有存在多个订阅者监听相同的事件类型， checkAdd返回true, 最后会将注解类里信息保存到SubscriberMethod实例，添加到stateFind的subscriberMethods集合里面；
+    2. 由1 我们得到了一些订阅者的信息保存在stateFind实例里， findUsingInfo方法最后通过getMethodsAndRelease(findState)得到List<SubscriberMethod>，然后将stateFind实例的属性进行回收， 再将stateFind保存到FIND_STATE_POOL数组里面方便下次再用。
+    3. 通过1 2 findSubscriberMethods方法得到List<SubscriberMethod>保存在METHOD_CACHE里面方便下次使用；eventBus.register(Object subscriber)方法得到了List<SubscriberMethod>后再遍历调用subscribe(subscriber, subscriberMethod)该方法里总要将相关信息保存到Map<Class<?>, CopyOnWriteArrayList<Subscription>> subscriptionsByEventType (Subscription实例保存subscriber订阅者，subscriberMethod订阅者里面的订阅方法)
+    4. 

@@ -26,6 +26,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 /**
+<<<<<<< HEAD
  *   1、noCache()
      对应于“no-cache”，如果出现在 响应 的头部，不是表示不允许对响应进行缓存，而是表示客户端需要与服务器进行再次验证，
         进行一个额外的GET请求得到最新的响应；如果出现请求头部，则表示不适用缓存响应，即记性网络请求获取响应。
@@ -33,6 +34,9 @@ import okhttp3.ResponseBody;
      2、noStore()
      对应于"no-store"，如果出现在响应头部，则表明该响应不能被缓存
 
+    1. 结合源码 学习网络知识
+ *  2. 实战
+ *  3.
      ref：
      https://www.jianshu.com/p/b32d13655be7
  */

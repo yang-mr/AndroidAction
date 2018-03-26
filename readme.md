@@ -11,7 +11,7 @@
     If-None-Match
     If-modified-Since 304 比较client跟server资源的时间，如果相等，则server返回304 client直接用本地缓存
 
-    xUtils3:
+    xUtils3:http(s)
 
     TaskProxy 里面包含一个真实的AbsTask(能继承canceable接口的抽象类)实现类为HttpTask, 
     1. 执行TaskProxy.doBackground(), 里面调用HttpTask的doBackground();
@@ -20,7 +20,11 @@
     4. 由3 HttpRequest.loadResult() 调用父类UriRequest.loadResult()-->Loader.load(UriRequest request) (Loader的实现类是StringLoader这个是在创建HttpRequest创建的也就是3 ）
     5. 由4 stringLoader.load(UriRequest request)--> request.sendRequest()执行完，StringLoader通过load(InputStream in)方法将响应的二进制流转为相应的对象;
     6.这样3 里面的RequestWorker 得到了响应的对象，然后一层一层传最终到1 TaskProxy.doBackground(), TaskProxy.onSuccess()->HttpTask.onSuccess(), HttpTask 拿到最终的响应结果通过用户传入的callback回调响应的结果。
-
+    
+    xUtils3:DB(ORM)
+        1.DbManager db = x.getDb(daoConfig)通过DbManager.DaoConfig 配置实例得到具体的DbManagerImpl实例，x.getDb(daoConfig)方法里通过调用DbManagerImpl的静态方法getInstance(daoConfig)例得到具体的DbManagerImpl实例,getInstance方法里首先看DAO_MAP集合（key:daoConfig value:DbManagerImpl)是否有对应的DbManagerImpl实例，有的话替换daoConfig,否则创建个实例，再保存到DAO_MAP集合方便下次使用；
+        2.创建DbManagerImpl实例主要通过openOrCreateDatabase得到SQLiteDatabase， 将DaoConfig里面的一些属性赋值到自己, 然后通过DaoConfig的dbOpenListener接口回调onDbOpened(DbManager db)方法, getInstance方法得到了DbManagerImpl后，通过比较DbManagerImpl里面的SQLiteDatabase的数据库版本跟DaoConfig的数据库版本，如果不相等则设置新的数据库版本号；
+        3. 由1 2配置好了数据，现在就开始进行增删改查，
 
 
     view事件分发
@@ -86,4 +90,9 @@ eventBus分析
     1.通过单例模式EventBus.getDefault()得到实例eventBus, 然后通过eventBus.register(Object subscriber) 方法实现订阅, 在register方法里， 首先会通过实例得到相应的类， 然后通过(该实例是在EventBus(EventBusBuilder builder)构造方法里实例化的)subscriberMethodFinder.findSubscriberMethods(subscriberClass) 得到订阅者的所有订阅方法, 该方法里ConcurrentHashMap(实现缓存)保存类的所有订阅者方法，如果缓存中没有相应的信息，ignoreGeneratedIndex（boolean 默认是false)则调用findUsingInfo(subscriberClass), 该方法里把相关信息保存在FindState实例(通过prepareFindState() 该方法里通过FIND_STATE_POOL数组进行stateFind的缓存如果数组里面有stateFind则直接方法并把数组相应的位置的保存对象设为null, 否则就new一个, 该数组里的对象是在 下面的 2保存的)里面， 然后通过findUsingReflectionInSingleClass(FindState findState)该方法里通过反射得到所有DeclaredMethod， 然后遍历所有的方法，通过判断方法的参数个数为1， 然后再获取方法注解类是否为Subscribe，判断通过后stateFind.checkAdd(Method method, Class<?> eventType)添加到stateFind实例的anyMethodByEventType hashMap里， 该方法会检查是否有存在多个订阅者监听相同的事件类型， checkAdd返回true, 最后会将注解类里信息保存到SubscriberMethod实例，添加到stateFind的subscriberMethods集合里面；
     2. 由1 我们得到了一些订阅者的信息保存在stateFind实例里， findUsingInfo方法最后通过getMethodsAndRelease(findState)得到List<SubscriberMethod>，然后将stateFind实例的属性进行回收， 再将stateFind保存到FIND_STATE_POOL数组里面方便下次再用。
     3. 通过1 2 findSubscriberMethods方法得到List<SubscriberMethod>保存在METHOD_CACHE里面方便下次使用；eventBus.register(Object subscriber)方法得到了List<SubscriberMethod>后再遍历调用subscribe(subscriber, subscriberMethod)该方法里总要将相关信息保存到Map<Class<?>, CopyOnWriteArrayList<Subscription>> subscriptionsByEventType (Subscription实例保存subscriber订阅者，subscriberMethod订阅者里面的订阅方法)
-    4. 
+    4.
+
+
+
+
+

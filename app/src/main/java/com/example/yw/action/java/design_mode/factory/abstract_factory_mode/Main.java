@@ -10,7 +10,7 @@ package com.example.yw.action.java.design_mode.factory.abstract_factory_mode;
 public class Main {
     public static void main(String[] args) {
         AbsFactory factory = new BenchiFactory();
-        Car car = new Car(factory.createEngine(), factory.createClutch());
+        Car car = new Car(factory);
         car.start();
     }
 }

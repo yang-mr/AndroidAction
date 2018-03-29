@@ -9,11 +9,6 @@ package com.example.yw.action.java.design_mode.factory.factory_method_mode;
 public class Car {
     private Engine engine;
     private Clutch clutch;
-    private CarPartsFactory factory;
-
-    public Car(Engine engine) {
-        this.engine = engine;
-    }
 
     public Car(Engine engine, Clutch clutch) {
         this.engine = engine;

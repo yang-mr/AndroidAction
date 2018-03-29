@@ -7,7 +7,7 @@ package com.example.yw.action.java.design_mode.factory.factory_method_mode;
  */
 
 public class CarPartsFactory {
-    public final static int ENGINE_BENCHI_TYPE = 0;
+    public final static int ENGINE_BENCHI_TYPE = 10;
     public final static int ENGINE_BMW_TYPE = 1;
     public final static int CLUTCH_BENCHI_TYPE = 2;
     public final static int CLUTCH_BMW_TYPE = 3;

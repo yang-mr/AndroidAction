@@ -10,7 +10,7 @@ public class CheckSingleton {
     private static CheckSingleton singleton;
     private CheckSingleton() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(1500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

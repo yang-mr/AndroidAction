@@ -7,5 +7,9 @@ package com.example.yw.action.java.design_mode.adapter.default_adapter;
  */
 
 public class OriginProduct extends AbsProduct {
-
+    @Override
+    public void originProductWork() {
+        super.originProductWork();
+        System.out.println("my name is orginProduct....");
+    }
 }

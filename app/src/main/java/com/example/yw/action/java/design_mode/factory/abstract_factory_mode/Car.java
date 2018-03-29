@@ -11,15 +11,6 @@ public class Car {
     private Clutch clutch;
     private AbsFactory factory;
 
-    public Car(Engine engine) {
-        this.engine = engine;
-    }
-
-    public Car(Engine engine, Clutch clutch) {
-        this.engine = engine;
-        this.clutch = clutch;
-    }
-
     public Car(AbsFactory factory) {
         this.factory = factory;
     }

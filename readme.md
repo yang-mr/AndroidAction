@@ -1,3 +1,5 @@
+注解处理器 annotation processor
+
 四大组件
  广播:
   LocalBroadcastManager

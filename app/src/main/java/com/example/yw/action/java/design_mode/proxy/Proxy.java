@@ -23,6 +23,7 @@ public class Proxy implements IOrigin {
     @Override
     public void exe() {
         if (origin == null) {
+            // this.origin = new Origin();
             throw new RuntimeException("please set real origin");
         }
         origin.exe();

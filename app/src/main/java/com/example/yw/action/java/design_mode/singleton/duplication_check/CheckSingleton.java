@@ -7,7 +7,7 @@ package com.example.yw.action.java.design_mode.singleton.duplication_check;
  */
 
 public class CheckSingleton {
-    private static CheckSingleton singleton;
+    private static volatile CheckSingleton singleton;
     private CheckSingleton() {
         try {
             Thread.sleep(1500);

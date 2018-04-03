@@ -7,5 +7,5 @@ package com.example.yw.action.java.design_mode.state;
  */
 
 public abstract class AbsState {
-    public abstract void operate();
+    public abstract void operate(String name);
 }

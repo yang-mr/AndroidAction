@@ -8,7 +8,7 @@ package com.example.yw.action.java.design_mode.state;
 
 public class OtherState extends AbsState {
     @Override
-    public void operate() {
-        System.out.println("my name is otherState");
+    public void operate(String name) {
+        System.out.println("my name is otherState！非正常投票");
     }
 }

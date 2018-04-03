@@ -1,3 +1,6 @@
+待复习：
+    retrofit okhttp glide greenDao rxjava rxandroid dagger2
+
 注解处理器 annotation processor
 
 四大组件

@@ -1,3 +1,6 @@
+
+一款新型智能照片软件，是依据现代人的拍照需求量身打造的服务软件。系统会自动备份和整理您的照片备份到家庭CafeBox，并通过AI识别各种场景进行分类.
+
 待复习：
     retrofit okhttp glide greenDao rxjava rxandroid dagger2
 

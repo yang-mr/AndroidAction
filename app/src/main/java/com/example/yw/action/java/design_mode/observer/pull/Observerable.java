@@ -1,4 +1,4 @@
-package com.example.yw.action.java.design_mode.observer.push;
+package com.example.yw.action.java.design_mode.observer.pull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
  * Desc:
  */
 
-public class Observerable {
+public abstract class Observerable {
     List<IObserver> observers = new ArrayList<>();
 
     public boolean addObserver(IObserver observer) {
@@ -22,7 +22,7 @@ public class Observerable {
 
     public void change(String msg) {
         for (IObserver iObserver : observers) {
-            iObserver.notify(msg);
+            iObserver.notify(this);
         }
     }
 }

@@ -15,6 +15,6 @@ public class ObserverImpl implements IObserver {
 
     @Override
     public void notify(String msg) {
-        System.out.println("name:" + this.name + " i ");
+        System.out.println("name:" + this.name + " my receive msg la!");
     }
 }

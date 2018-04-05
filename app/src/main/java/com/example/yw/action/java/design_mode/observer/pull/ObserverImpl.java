@@ -15,7 +15,7 @@ public class ObserverImpl implements IObserver {
 
     @Override
     public void notify(Observerable observerable) {
-        ObserverableImpl observerable1 = (ObserverableImpl) observerable;
+        Observerable observerable1 = observerable;
         System.out.println("name:" + this.name + " my receive msg la! observerable name: " + observerable1.getName());
     }
 }

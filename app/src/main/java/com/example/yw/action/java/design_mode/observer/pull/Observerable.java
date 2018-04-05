@@ -9,20 +9,38 @@ import java.util.List;
  * Desc:
  */
 
-public abstract class Observerable {
-    List<IObserver> observers = new ArrayList<>();
+    public class Observerable {
+        private String name;
+        private int age;
 
-    public boolean addObserver(IObserver observer) {
-        return observers.add(observer);
-    }
+        public String getName() {
+            return name;
+        }
 
-    public boolean removeObserver(IObserver observer) {
-        return observers.remove(observer);
-    }
+        public int getAge() {
+            return age;
+        }
 
-    public void change(String msg) {
-        for (IObserver iObserver : observers) {
-            iObserver.notify(this);
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+        List<IObserver> observers = new ArrayList<>();
+
+        public boolean addObserver(IObserver observer) {
+            return observers.add(observer);
+        }
+
+        public boolean removeObserver(IObserver observer) {
+            return observers.remove(observer);
+        }
+
+        public void change(String msg) {
+            for (IObserver iObserver : observers) {
+                iObserver.notify(this);
+            }
         }
     }
-}

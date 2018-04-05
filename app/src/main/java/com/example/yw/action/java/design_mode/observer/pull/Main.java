@@ -9,7 +9,7 @@ package com.example.yw.action.java.design_mode.observer.pull;
 public class Main {
     public static void main(String[] args) {
         // create observerable
-        ObserverableImpl observerable = new ObserverableImpl();
+        Observerable observerable = new Observerable();
         observerable.setName("jack");
         observerable.setAge(100);
         for (int i = 0; i < 5; i++) {

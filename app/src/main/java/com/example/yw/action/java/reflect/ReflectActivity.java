@@ -9,10 +9,17 @@ import com.example.yw.action.R;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.GenericArrayType;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.lang.reflect.Parameter;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
+import java.lang.reflect.WildcardType;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  Desc reflect demo
@@ -36,9 +43,177 @@ public class ReflectActivity extends AppCompatActivity {
 
       //  testInterfaces();
 
-        testConstructor(); // 获得类的构造函数
+        // testConstructor(); // 获得类的构造函数
 
         // testMethod(); // 获得类的方法
+
+        // testGeneric();
+
+        // testParameterizedType();
+
+        // testTypeVariable();
+        
+        // testGenericArrayType();
+
+        testWildcardType();
+
+    }
+
+
+    static class WildcardTypeBean<T extends Person> {
+        private List<? extends Person> p;
+        private List<? super Number> a;
+    }
+    /**
+     * 通配符的类型
+     */
+    private static void testWildcardType() {
+        Class s = new WildcardTypeBean().getClass();
+        Field[] fields = s.getDeclaredFields();
+        for (Field field : fields) {
+            Type type = field.getGenericType();
+            System.out.println(type);
+            if (type instanceof ParameterizedType) {
+                Type typee = ((ParameterizedType) type).getActualTypeArguments()[0];
+
+                if (typee instanceof WildcardType) {
+                    Type[] tt = ((WildcardType) typee).getLowerBounds();
+                    for (Type e : tt) {
+                        System.out.println(e);
+                    }
+
+                    Type[] ee = ((WildcardType) typee).getUpperBounds();
+                    for (Type t : ee) {
+                        System.out.println(t);
+                    }
+                }
+            }
+
+        }
+    }
+
+    static class GenericArrayType<T> {
+        public void test(List<String>[] list, String[] s, List<String> l, T[] t) {
+
+        }
+    }
+    private static void testGenericArrayType() {
+        try {
+            Class s = new GenericArrayType<String>().getClass();
+            Method method = s.getDeclaredMethods()[0];
+            Type[] types = method.getGenericParameterTypes();
+            for (Type p : types) {
+                System.out.println(p + "is genericArrayType " + (p instanceof java.lang.reflect.GenericArrayType));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    static class VariableBean<T extends Person, V> implements Person<T> {
+        T value;
+
+        @Override
+        public boolean isPerson() {
+            return false;
+        }
+    }
+    /**
+     * 变量类型
+     */
+    private static void testTypeVariable() {
+        VariableBean bean = new VariableBean<Person, String>();
+        Class s = bean.getClass();
+        TypeVariable[] cTypes = s.getTypeParameters();
+        for (TypeVariable cType : cTypes) {
+            System.out.println(cType);
+            System.out.println(cType.getBounds()[0]);
+        }
+
+        try {
+            Field field  = s.getDeclaredField("value");
+            Type type = field.getGenericType();
+            System.out.println(type);
+            if (type instanceof TypeVariable) {
+                TypeVariable typeVariable = (TypeVariable) type;
+                System.out.println("typeVariable.getName():" + typeVariable.getName());
+                System.out.println("typeVariable.getGenericDeclaration():" + typeVariable.getGenericDeclaration());
+                Type[] types = typeVariable.getBounds();
+                for (Type t : types) {
+                    System.out.println(t);
+                }
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+    }
+
+    static class Bean {
+        Map<String, Person> map;
+        Set<String> set1;
+        Class<?> clz;
+        Holder<String> holder;
+        List<String> list;
+        // Map<String,Person> map 这个 ParameterizedType 的 getOwnerType() 为 null，
+        // 而 Map.Entry<String, String> entry 的 getOwnerType() 为 Map 所属于的 Type。
+        Map.Entry<String, String> entry;
+        // 下面的 field 的 Type 不属于ParameterizedType
+        String str;
+        Integer i;
+        Set set;
+        List aList;
+
+        static class Holder<V> {
+
+        }
+    }
+    /**
+     *  参数化类型
+     */
+    private static void testParameterizedType() {
+        Field f = null;
+        try {
+            Field[] fields = Bean.class.getDeclaredFields();
+            // 打印出所有的 Field 的 TYpe 是否属于 ParameterizedType
+            for (int i = 0; i < fields.length; i++) {
+                f = fields[i];
+                System.out.println(f.getName()
+                        + " getGenericType() instanceof ParameterizedType "
+                        + (f.getGenericType() instanceof ParameterizedType));
+            }
+            getParameterizedTypeMes(Bean.class, "map" );
+            getParameterizedTypeMes(Bean.class, "entry" );
+        } catch (NoSuchFieldException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    private static void getParameterizedTypeMes(Class clazz, String fieldName) throws NoSuchFieldException {
+        Field f = clazz.getDeclaredField(fieldName);
+        f.setAccessible(true);
+        ParameterizedType pType = (ParameterizedType) f.getGenericType();
+        System.out.println(pType.getRawType());
+        for (Type type : pType.getActualTypeArguments()) {
+            System.out.println(type);
+        }
+        System.out.println(pType.getOwnerType()); // null
+    }
+
+    /**
+     * 范型的获取，
+     */
+    private static void testGeneric() {
+        Zoo zoo = new Zoo<Meat>() {
+            @Override
+            public void eat(Meat o) {
+
+            }
+        };
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

@@ -6,6 +6,6 @@ package com.example.yw.action.java.reflect;
  * Desc:
  */
 
-public interface Person {
+public interface Person<T> {
     boolean isPerson();
 }

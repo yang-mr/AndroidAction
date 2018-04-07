@@ -1,4 +1,6 @@
 
+ThreadLocal.ThreadLocalMap 的底层数据结构导致 ThreadLocal 有内存泄漏的情况，尽可能在每次使用 ThreadLocal 后手动调用 remove()，以避免出现 ThreadLocal 经典的内存泄漏甚至是造成自身业务混乱的风险。
+
 一款新型智能照片软件，是依据现代人的拍照需求量身打造的服务软件。系统会自动备份和整理您的照片备份到家庭CafeBox，并通过AI识别各种场景进行分类.
 
 待复习：

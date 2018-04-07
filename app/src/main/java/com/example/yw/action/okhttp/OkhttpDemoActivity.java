@@ -1,11 +1,14 @@
 package com.example.yw.action.okhttp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
 import com.example.yw.action.R;
+import com.example.yw.action.Utils;
+import com.orhanobut.logger.Logger;
 
 import java.io.File;
 import java.io.IOException;
@@ -41,7 +44,7 @@ import okhttp3.ResponseBody;
      https://www.jianshu.com/p/b32d13655be7
  */
 
-public class OkhttpDemoActivity extends AppCompatActivity implements View.OnClickListener {
+public class OkhttpDemoActivity extends Activity implements View.OnClickListener {
     OkHttpClient client = new OkHttpClient();
 
     @Override
@@ -50,7 +53,6 @@ public class OkhttpDemoActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_okhttp_demo);
 
         findViewById(R.id.okio).setOnClickListener(this);
-
 
         testPostOkHttp();
 
@@ -63,6 +65,8 @@ public class OkhttpDemoActivity extends AppCompatActivity implements View.OnClic
 
         // 可以使用拦截器处理缓存
         // testCacheByIn();
+
+        Utils.setOnClickListener(this, this, R.id.bt_get, R.id.bt_post, R.id.bt_download);
     }
 
     private void testCacheByIn() {
@@ -206,7 +210,36 @@ public class OkhttpDemoActivity extends AppCompatActivity implements View.OnClic
         switch (v.getId()) {
             case R.id.okio:  // 记录一些io
                 startActivity(new Intent(this, OkIoDemoActivity.class));
+            case R.id.bt_get:
+                reqGet();
+            case R.id.bt_post:
+                startActivity(new Intent(this, OkIoDemoActivity.class));
+            case R.id.bt_download:
+                startActivity(new Intent(this, OkIoDemoActivity.class));
             break;
         }
+    }
+
+    private void reqGet() {
+        String url = "http://www.wanandroid.com/friend/json";
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        OkHttpClient client = builder.build();
+
+        Request.Builder requestBuilder = new Request.Builder();
+        requestBuilder.url(url);
+
+        final Request request = requestBuilder.build();
+        Call call = client.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                Logger.d(response.message());
+            }
+        });
     }
 }

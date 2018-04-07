@@ -1,9 +1,12 @@
 package com.example.yw.action;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
+import android.view.View;
 
 /**
  * Created by jack
@@ -59,5 +62,11 @@ public class Utils {
             }
         }
         return netType;
+    }
+
+    public static void setOnClickListener(Activity content, View.OnClickListener listener, Integer... ids) {
+        for (Integer i : ids) {
+            content.findViewById(i).setOnClickListener(listener);
+        }
     }
 }

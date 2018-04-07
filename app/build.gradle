@@ -40,10 +40,11 @@ dependencies {
 
     compile 'com.android.support:recyclerview-v7:26.0.2'
     // retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:retrofit:2.4.0'
     // gson converter
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     // 针对rxjava2.x（adapter-rxjava2的版本要 >= 2.2.0）
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'com.squareup.okhttp3:okhttp:3.10.0'
 
 }

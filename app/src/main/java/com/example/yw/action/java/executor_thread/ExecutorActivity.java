@@ -81,18 +81,18 @@ public class ExecutorActivity extends AppCompatActivity {
 
         MyCallable myCallable = new MyCallable();
         FutureTask<String> task = new FutureTask(myCallable);
-
-        try {
-            String msg = task.get(2000, TimeUnit.MILLISECONDS);
-            System.out.println("msg:" + msg);
-        } catch (TimeoutException e) {
-            System.out.println("e:" + e);
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+//
+//        try {
+//            String msg = task.get(2000, TimeUnit.MILLISECONDS);
+//            System.out.println("msg:" + msg);
+//        } catch (TimeoutException e) {
+//            System.out.println("e:" + e);
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        } catch (ExecutionException e) {
+//            e.printStackTrace();
+//        }
         Thread thread = new Thread(task);
         thread.start();
     }

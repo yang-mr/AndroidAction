@@ -6,6 +6,10 @@ ThreadLocal.ThreadLocalMap 的底层数据结构导致 ThreadLocal 有内存泄�
 待复习：
     retrofit okhttp glide greenDao rxjava rxandroid dagger2
     四大组件启动流程
+    动画（view, 属性动画)
+
+待写博客
+    ListView 观察者模式分析
 
 注解处理器 annotation processor
 

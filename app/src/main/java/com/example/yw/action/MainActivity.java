@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.yw.action.glide.GlideActivity;
+import com.example.yw.action.handler.HandlerDemoActivity;
 import com.example.yw.action.java.arithmetic.ArithmeticActivity;
 import com.example.yw.action.java.classloader.ClassLoaderActivity;
 import com.example.yw.action.java.collection.CollectionActivity;
@@ -55,6 +56,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_custom).setOnClickListener(this);
         findViewById(R.id.bt_executor).setOnClickListener(this);
         findViewById(R.id.bt_Equals).setOnClickListener(this);
+        findViewById(R.id.bt_handler).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -175,6 +177,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_Equals:
                 startActivity(new Intent(this, EqualsActivity.class));
+                break;
+            case R.id.bt_handler:
+                startActivity(new Intent(this, HandlerDemoActivity.class));
                 break;
         }
     }

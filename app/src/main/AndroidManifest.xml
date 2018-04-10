@@ -63,7 +63,8 @@
         <activity android:name=".view.custom.CustomActivity" />
         <activity android:name=".java.executor_thread.ExecutorActivity" />
         <activity android:name=".java.equals_hashcode.EqualsActivity" />
-        <activity android:name=".view.listview.ListDemoActivity"></activity>
+        <activity android:name=".view.listview.ListDemoActivity" />
+        <activity android:name=".handler.HandlerDemoActivity"></activity>
     </application>
 
 </manifest>

@@ -57,6 +57,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_executor).setOnClickListener(this);
         findViewById(R.id.bt_Equals).setOnClickListener(this);
         findViewById(R.id.bt_handler).setOnClickListener(this);
+        findViewById(R.id.bt_webview).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -180,6 +181,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_handler:
                 startActivity(new Intent(this, HandlerDemoActivity.class));
+                break;
+            case R.id.bt_optimize:
+                startActivity(new Intent(this, OptimizeActivity.class));
                 break;
         }
     }

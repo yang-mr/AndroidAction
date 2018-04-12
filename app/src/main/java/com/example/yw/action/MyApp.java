@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
+import com.squareup.leakcanary.LeakCanary;
 
 /**
  * Created by jack
@@ -16,8 +17,7 @@ public class MyApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        LeakCanary.install(this);
         Logger.addLogAdapter(new AndroidLogAdapter());
-
     }
 }

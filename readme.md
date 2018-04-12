@@ -1,3 +1,9 @@
+一般情况下，我们谈性能优化基本上会从以下几个方面：
+    App启动速度优化
+    UI流畅度优化
+    内存优化
+    apk瘦身
+    电量优化
 
 ThreadLocal.ThreadLocalMap 的底层数据结构导致 ThreadLocal 有内存泄漏的情况，尽可能在每次使用 ThreadLocal 后手动调用 remove()，以避免出现 ThreadLocal 经典的内存泄漏甚至是造成自身业务混乱的风险。
 

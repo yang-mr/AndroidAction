@@ -6,21 +6,19 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.example.yw.action.R;
 
-import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade;
-
 public class GlideActivity extends AppCompatActivity implements View.OnClickListener {
+    private String uri = "https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3588772980,2454248748&fm=27&gp=0.jpg";
+    private ImageView imageView;
 
-    private ImageView imageView = findViewById(R.id.iv_testglideapp);
-    private String uri = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_glide);
 
+        imageView = findViewById(R.id.iv_testglideapp);
         findViewById(R.id.bt_appglide).setOnClickListener(this);
         findViewById(R.id.bt_error).setOnClickListener(this);
         findViewById(R.id.bt_requestoptions).setOnClickListener(this);
@@ -67,10 +65,10 @@ public class GlideActivity extends AppCompatActivity implements View.OnClickList
                 .into(target);  // 之前开始的任何请求都会被取消，它们使用的资源将被释放
 
         // or .clear(Target target)
-        Glide.with(this).clear(target); // 这将在不需要开始新的加载的情况下释放掉任何相关资源
+        //Glide.with(this).clear(target); // 这将在不需要开始新的加载的情况下释放掉任何相关资源
 
         // or .clear(View view)
-        Glide.with(this).clear(imageView);
+        //Glide.with(this).clear(imageView);
         // because Glide 的 ViewTarget 子类使用了 Android Framework 的
         // getTag() 和 setTag() 方法来存储每个请求的相关信息
     }
@@ -110,12 +108,12 @@ public class GlideActivity extends AppCompatActivity implements View.OnClickList
      *   是Glide中请求的骨架，负责携带请求的url和你的设置项来开始一个新的加载过程
      */
     private void options() {
-        RequestOptions requestOptions = RequestOptions.centerCropTransform();
+        //RequestOptions requestOptions = RequestOptions.centerCropTransform();
         Glide.with(this)
-                .asBitmap() // get Bitmap RequestBuilder default Drawable RequestBuilder
+              //  .asBitmap() // get Bitmap RequestBuilder default Drawable RequestBuilder
                 .load(uri)
                 // .apply(centerCropTransform(this))
-                .apply(requestOptions)
+               // .apply(requestOptions)
                // .transition(withCrossFade())
                 .into(imageView);
 

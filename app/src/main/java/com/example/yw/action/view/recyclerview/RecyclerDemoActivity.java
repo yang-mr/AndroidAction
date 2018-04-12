@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.yw.action.R;
 
 import java.util.ArrayList;
@@ -108,7 +107,6 @@ public class RecyclerDemoActivity extends AppCompatActivity implements View.OnCl
 
         @Override
         public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-            RequestOptions options = new RequestOptions();
 
             Glide.with(holder.itemView.getContext())
                     .load(urls.get(position))

@@ -1,3 +1,28 @@
+调用:Glide.with(activity).load(url).into(imageview);
+
+流程:
+Glide.with(activity)
+1.RequestManagerRetriever.get()单例得到RequestManagerRetriever;
+2.requestManagerRetriever.get(activity)->supportFragmentGet(Context context, FragmentManager fm)->getSupportRequestManagerFragment(fm)得到SupportRequestManagerFragment创建requestManger并加入到supportRequestManagerFragment, 返回requestManager;
+
+requestManager.load(url) == Glide.with(activity).load(url)
+1.requestManger.load(url)->fromString()->loadGeneric(String.class)->streamModelLoader = Glide.buildStreamModelLoader(modelClass, context), fileDescriptorModelLoader = Glide.buildFileDescriptorModelLoader(modelClass, context), optionsApplier.apply(new DrawableTypeRequest<T>(modelClass, streamModelLoader, fileDescriptorModelLoader, context,
+                        glide, requestTracker, lifecycle, optionsApplier));->DrawableTypeRequest.load(ModelType model)
+
+drawableTypeRequest.into(imageview) == Glide.with(activity).load(url).into(imageview);
+
+drawableTypeRequest.into(imageview)->
+glideDrawableImageViewTarget = imageViewTargetFactory.buildTarget(imageView, transcodedClass);into(glideDrawableImageViewTarget)->
+(GenericRequest)request = buildRequest(target);requestTracker(创建drawableTypeRequest对象时创建的).runRequest(request)->request.begin()->
+onSizeReady(int width, int height)->
+dataFetcher(ImageVideoModelLoader.ImageVideoFetcherstreamFetcher(httpUrlFetcher,null)) = modelLoader.getResourceFetcher(model, width, height);engine(创建request得到的,该实例一开始初始化Glide通过GlideBuild创建的).load(signature, width, height, dataFetcher, loadProvider, transformation, transcoder, priority, isMemoryCacheable, diskCacheStrategy, this)->EngineJob(key, diskCacheService, sourceService, isMemoryCacheable, listener);decodeJob = new DecodeJob<T, Z, R>(key, width, height, fetcher, loadProvider, transformation, transcoder, diskCacheProvider, diskCacheStrategy, priority);runnable = new EngineRunnable(engineJob, decodeJob, priority);engineJob.start(runnable)()->
+engineRunnable.run()->resource = decode()->decodeFromSource()->decodeJob.decodeFromSource()->decodeJob.decodeSource();fetcher(ImageVideoFetcher).loadData(priority);->fetcher(HttpUrlFetcher).loadData(priority)->loadDataWithRedirects(URL url, int redirects, URL lastUrl, Map<String, String> headers)->getStreamForSuccessfulRequest(urlConnection) 得到InputStream->new ImageVideoWrapper(is, fileDescriptor);encodeJob.decodeSource()得到imageVideoWrapper (data)对象继续执行decodeFromSourceData(data)->decoded = loadProvider.getSourceDecoder().decode(data, width, height);
+
+
+
+
+
+https://www.processon.com/diagraming/5ad05f4ae4b0518eacac8c73
 jarsigner和apksigner的签名方式的异同:
 
 使用apksigner签名工具前，必须先执行zipalign操作；而使用jarsigner签名工具则是先签名，然后再用zipalign优化。

@@ -1,3 +1,9 @@
+jarsigner和apksigner的签名方式的异同:
+
+使用apksigner签名工具前，必须先执行zipalign操作；而使用jarsigner签名工具则是先签名，然后再用zipalign优化。
+
+jarsigner是针对每个文件进行了签名，然后针对签名后的文件计算摘要，并写入到META-INF文件夹下的MANIFEST.MF文件里面；而apksigner直接计算所有文件的摘要，写入MANIFEST.MF文件。
+
 一般情况下，我们谈性能优化基本上会从以下几个方面：
     App启动速度优化
     UI流畅度优化
@@ -13,6 +19,8 @@ ThreadLocal.ThreadLocalMap 的底层数据结构导致 ThreadLocal 有内存泄�
     retrofit okhttp glide greenDao rxjava rxandroid dagger2
     四大组件启动流程
     动画（view, 属性动画)
+    view事件机制
+    view绘制流程
 
 待写博客
     ListView 观察者模式分析

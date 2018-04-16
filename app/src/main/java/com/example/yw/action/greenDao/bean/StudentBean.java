@@ -11,21 +11,21 @@ import org.greenrobot.greendao.annotation.Generated;
  * Desc:
  */
 @Entity
-public class StudentMsgBean {
+public class StudentBean {
     @Id
     private Long id;
     @Property(nameInDb = "STUDENTNUM")
     private String studentNum;
     @Property(nameInDb = "NAME")
     private String name;
-    @Generated(hash = 381350025)
-    public StudentMsgBean(Long id, String studentNum, String name) {
+    @Generated(hash = 969663110)
+    public StudentBean(Long id, String studentNum, String name) {
         this.id = id;
         this.studentNum = studentNum;
         this.name = name;
     }
-    @Generated(hash = 160565988)
-    public StudentMsgBean() {
+    @Generated(hash = 2097171990)
+    public StudentBean() {
     }
     public Long getId() {
         return this.id;
@@ -45,4 +45,5 @@ public class StudentMsgBean {
     public void setName(String name) {
         this.name = name;
     }
+
 }

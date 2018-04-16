@@ -9,8 +9,8 @@ import com.example.yw.action.R;
 import com.example.yw.action.Utils;
 import com.example.yw.action.greenDao.bean.DaoMaster;
 import com.example.yw.action.greenDao.bean.DaoSession;
-import com.example.yw.action.greenDao.bean.StudentMsgBean;
-import com.example.yw.action.greenDao.bean.StudentMsgBeanDao;
+import com.example.yw.action.greenDao.bean.StudentBean;
+import com.example.yw.action.greenDao.bean.StudentBeanDao;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class GreenDaoDemoActivity extends AppCompatActivity implements View.OnClickListener {
     private DaoSession mDaoSession;
-    private StudentMsgBeanDao mBeanDao;
+    private StudentBeanDao mBeanDao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +30,7 @@ public class GreenDaoDemoActivity extends AppCompatActivity implements View.OnCl
 
         initDd();
 
-        mBeanDao = mDaoSession.getStudentMsgBeanDao();
+        mBeanDao = mDaoSession.getStudentBeanDao();
     }
 
     private void initDd() {
@@ -61,13 +61,13 @@ public class GreenDaoDemoActivity extends AppCompatActivity implements View.OnCl
         switch (add) {
             case "add":
 
-                StudentMsgBean studentMsgBean = new StudentMsgBean();
+                StudentBean studentMsgBean = new StudentBean();
                 studentMsgBean.setName("zone");
                 studentMsgBean.setStudentNum("123456");
                 mBeanDao.insert(studentMsgBean);
                 break;
             case "delete":
-                List<StudentMsgBean> list = mBeanDao.queryBuilder()
+                List<StudentBean> list = mBeanDao.queryBuilder()
                         .build().list();
                 for (int i = 0; i < list.size(); i++) {
                     if (i == 0) {
@@ -93,8 +93,8 @@ public class GreenDaoDemoActivity extends AppCompatActivity implements View.OnCl
                 list = mBeanDao.queryBuilder()
                         .offset(1)//偏移量，相当于 SQL 语句中的 skip
                         .limit(3)//只获取结果集的前 3 个数据
-                        .orderAsc(StudentMsgBeanDao.Properties.StudentNum)//通过 StudentNum 这个属性进行正序排序
-                        .where(StudentMsgBeanDao.Properties.Name.eq("zone"))//数据筛选，只获取 Name = "zone" 的数据。
+                        .orderAsc(StudentBeanDao.Properties.StudentNum)//通过 StudentNum 这个属性进行正序排序
+                        .where(StudentBeanDao.Properties.Name.eq("zone"))//数据筛选，只获取 Name = "zone" 的数据。
                         .build()
                         .list();
                 break;

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.yw.action.glide.GlideActivity;
+import com.example.yw.action.greenDao.GreenDaoDemoActivity;
 import com.example.yw.action.handler.HandlerDemoActivity;
 import com.example.yw.action.java.arithmetic.ArithmeticActivity;
 import com.example.yw.action.java.classloader.ClassLoaderActivity;
@@ -58,6 +59,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_Equals).setOnClickListener(this);
         findViewById(R.id.bt_handler).setOnClickListener(this);
         findViewById(R.id.bt_webview).setOnClickListener(this);
+        findViewById(R.id.bt_greendao).setOnClickListener(this);
     }
 
     private void testHandler() {
@@ -184,6 +186,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_optimize:
                 startActivity(new Intent(this, OptimizeActivity.class));
+                break;
+            case R.id.bt_greendao:
+                startActivity(new Intent(this, GreenDaoDemoActivity.class));
                 break;
         }
     }

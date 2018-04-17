@@ -1,3 +1,8 @@
+rxjava:
+  ObservableSubscribeOn
+
+  ObservableObserveOn handlerScheduler handlerWorker
+
 调用:Glide.with(activity).load(url).into(imageview);
 
 流程:

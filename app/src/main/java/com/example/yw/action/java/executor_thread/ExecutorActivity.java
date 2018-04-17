@@ -1,5 +1,6 @@
 package com.example.yw.action.java.executor_thread;
 
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -32,6 +33,20 @@ public class ExecutorActivity extends AppCompatActivity {
         createThread();
 
         // testThreadPool();
+
+        testAsyncTask();
+    }
+
+    private static void testAsyncTask() {
+        class MyAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
+
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                return null;
+            }
+        }
+
+        new MyAsyncTask().execute("test");
     }
 
     private static void testThreadPool() {

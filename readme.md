@@ -46,6 +46,7 @@ ThreadLocal.ThreadLocalMap 的底层数据结构导致 ThreadLocal 有内存泄�
     动画（view, 属性动画)
     view事件机制
     view绘制流程
+    binder机制 ref:https://blog.csdn.net/luoshengyang/article/details/6642463
 
 待写博客
     ListView 观察者模式分析

@@ -14,14 +14,11 @@ import org.greenrobot.greendao.annotation.Generated;
 public class StudentBean {
     @Id
     private Long id;
-    @Property(nameInDb = "STUDENTNUM")
-    private String studentNum;
     @Property(nameInDb = "NAME")
     private String name;
-    @Generated(hash = 969663110)
-    public StudentBean(Long id, String studentNum, String name) {
+    @Generated(hash = 636788913)
+    public StudentBean(Long id, String name) {
         this.id = id;
-        this.studentNum = studentNum;
         this.name = name;
     }
     @Generated(hash = 2097171990)
@@ -33,17 +30,10 @@ public class StudentBean {
     public void setId(Long id) {
         this.id = id;
     }
-    public String getStudentNum() {
-        return this.studentNum;
-    }
-    public void setStudentNum(String studentNum) {
-        this.studentNum = studentNum;
-    }
     public String getName() {
         return this.name;
     }
     public void setName(String name) {
         this.name = name;
     }
-
 }

@@ -60,10 +60,8 @@ public class GreenDaoDemoActivity extends AppCompatActivity implements View.OnCl
     private void testSample(String add) {
         switch (add) {
             case "add":
-
                 StudentBean studentMsgBean = new StudentBean();
                 studentMsgBean.setName("zone");
-                studentMsgBean.setStudentNum("123456");
                 mBeanDao.insert(studentMsgBean);
                 break;
             case "delete":
@@ -81,7 +79,6 @@ public class GreenDaoDemoActivity extends AppCompatActivity implements View.OnCl
                 list = mBeanDao.queryBuilder()
                         .build().list();
                 for (int i = 0; i < list.size(); i++) {
-                    Log.d("zoneLog", "studentNumber: " + list.get(i).getStudentNum());
                     Log.d("zoneLog", "name: " + list.get(i).getName());
                     if (i == 0) {
                         list.get(0).setName("zone==========>");
@@ -93,7 +90,7 @@ public class GreenDaoDemoActivity extends AppCompatActivity implements View.OnCl
                 list = mBeanDao.queryBuilder()
                         .offset(1)//偏移量，相当于 SQL 语句中的 skip
                         .limit(3)//只获取结果集的前 3 个数据
-                        .orderAsc(StudentBeanDao.Properties.StudentNum)//通过 StudentNum 这个属性进行正序排序
+                        .orderAsc(StudentBeanDao.Properties.Id)//通过 StudentNum 这个属性进行正序排序
                         .where(StudentBeanDao.Properties.Name.eq("zone"))//数据筛选，只获取 Name = "zone" 的数据。
                         .build()
                         .list();

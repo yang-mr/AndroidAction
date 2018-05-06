@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.yw.action.R;
+import com.orhanobut.logger.Logger;
 
 import java.sql.Time;
 import java.util.concurrent.Callable;
@@ -38,11 +39,27 @@ public class ExecutorActivity extends AppCompatActivity {
     }
 
     private static void testAsyncTask() {
-        class MyAsyncTask<Params, Progress, Result> extends AsyncTask<Params, Progress, Result> {
+        class MyAsyncTask extends AsyncTask<String, Integer, User> {
 
             @Override
-            protected Object doInBackground(Object[] objects) {
-                return null;
+            protected User doInBackground(String[] objects) {
+                User user = new User("1", "2");
+                return user;
+            }
+
+            @Override
+            protected void onProgressUpdate(Integer[] values) {
+                super.onProgressUpdate(values);
+            }
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(User user) {
+                Logger.d("user.name:" + user);
             }
         }
 

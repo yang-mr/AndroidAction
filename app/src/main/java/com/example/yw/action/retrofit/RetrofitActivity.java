@@ -121,7 +121,7 @@ public class RetrofitActivity extends AppCompatActivity {
 
 
     private void initRetrofit() {
-        String baseUrl = "";
+        String baseUrl = "http://www.baidu.com";
         mRetrofit = new Retrofit.Builder()
                             .baseUrl(baseUrl)
                             .addConverterFactory(GsonConverterFactory.create())  // converter

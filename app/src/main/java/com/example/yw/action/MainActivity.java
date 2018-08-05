@@ -9,6 +9,8 @@ import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.yw.action.databinding.DataBindingActivity;
+import com.example.yw.action.eventbus.PublicActivity;
 import com.example.yw.action.glide.GlideActivity;
 import com.example.yw.action.greenDao.GreenDaoDemoActivity;
 import com.example.yw.action.handler.HandlerDemoActivity;
@@ -60,6 +62,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
         findViewById(R.id.bt_handler).setOnClickListener(this);
         findViewById(R.id.bt_webview).setOnClickListener(this);
         findViewById(R.id.bt_greendao).setOnClickListener(this);
+        findViewById(R.id.bt_eventbus).setOnClickListener(this);
+        findViewById(R.id.bt_databinding).setOnClickListener(this);
+
     }
 
     private void testHandler() {
@@ -189,6 +194,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 break;
             case R.id.bt_greendao:
                 startActivity(new Intent(this, GreenDaoDemoActivity.class));
+                break;
+            case R.id.bt_eventbus:
+                startActivity(new Intent(this, PublicActivity.class));
+                break;
+            case R.id.bt_databinding:
+                startActivity(new Intent(this, DataBindingActivity.class));
                 break;
         }
     }

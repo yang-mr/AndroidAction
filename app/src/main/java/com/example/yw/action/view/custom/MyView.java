@@ -24,7 +24,7 @@ public class MyView extends android.support.v7.widget.AppCompatTextView {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 Logger.d("ACTION_DOWN");
-                break;
+                return false;
             case MotionEvent.ACTION_UP:
                 Logger.d("ACTION_UP");
                 break;

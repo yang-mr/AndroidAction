@@ -44,4 +44,11 @@ public class CustomActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        com.orhanobut.logger.Logger.d("exe onTouchEvent......");
+
+        return super.onTouchEvent(event);
+    }
 }

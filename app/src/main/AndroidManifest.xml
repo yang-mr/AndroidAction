@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.yw.action">
+    package="com.yw.yw.action">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
@@ -8,27 +8,27 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".MyApp"
+        android:name="com.yw.yw.action.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IpcActivity" />
-        <activity android:name=".SharedPreferencesActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="com.yw.yw.action.IpcActivity" />
+        <activity android:name="com.yw.yw.action.SharedPreferencesActivity" />
+        <activity android:name="com.yw.yw.action.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".GetLeftActivity" />
-        <activity android:name=".WindowActivity" />
-        <activity android:name=".glide.GlideActivity" />
-        <activity android:name=".rxjava.RxJavaActivity" />
-        <activity android:name=".NetChangeActivity" />
+        <activity android:name="com.yw.yw.action.GetLeftActivity" />
+        <activity android:name="com.yw.yw.action.WindowActivity" />
+        <activity android:name="com.yw.yw.action.glide.GlideActivity" />
+        <activity android:name="com.yw.yw.action.rxjava.RxJavaActivity" />
+        <activity android:name="com.yw.yw.action.NetChangeActivity" />
         <!--
         <receiver android:name=".broadcastReceiver.MyBroadcastReceiver">
             <intent-filter>
@@ -37,39 +37,39 @@
         </receiver>
         -->
         <service
-            android:name=".broadcastReceiver.MyNetChangeService"
+            android:name="com.yw.yw.action.broadcastReceiver.MyNetChangeService"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE.textservice" />
             </intent-filter>
         </service>
 
-        <activity android:name=".rxjava.rxbus.RxBusActivity" />
-        <activity android:name=".view.recyclerview.RecyclerDemoActivity" />
-        <activity android:name=".java.reflect.ReflectActivity" />
-        <activity android:name=".java.dynamicproxy.ProxyActivity" />
-        <activity android:name=".java.generic.GenericActivity" />
-        <activity android:name=".retrofit.RetrofitActivity" />
-        <activity android:name=".okhttp.OkhttpDemoActivity" />
-        <activity android:name=".java.classloader.ClassLoaderActivity" />
-        <activity android:name=".ssl.SslActivity" />
-        <activity android:name=".view.CoordinatorLayout.CoordinatorActivity" />
-        <activity android:name=".view.ConstraintLayout.ConstraintActivity" />
-        <activity android:name=".java.generic.GenericInterfaceActivity" />
-        <activity android:name=".java.arithmetic.ArithmeticActivity" />
-        <activity android:name=".ReleaseActivity" />
-        <activity android:name=".okhttp.OkIoDemoActivity" />
-        <activity android:name=".java.collection.CollectionActivity" />
-        <activity android:name=".view.custom.CustomActivity" />
-        <activity android:name=".java.executor_thread.ExecutorActivity" />
-        <activity android:name=".java.equals_hashcode.EqualsActivity" />
-        <activity android:name=".view.listview.ListDemoActivity" />
-        <activity android:name=".handler.HandlerDemoActivity" />
-        <activity android:name=".OptimizeActivity" />
-        <activity android:name=".greenDao.GreenDaoDemoActivity" />
-        <activity android:name=".eventbus.PublicActivity" />
-        <activity android:name=".eventbus.SubscriberActivity" />
-        <activity android:name=".databinding.DataBindingActivity"></activity>
+        <activity android:name="com.yw.yw.action.rxjava.rxbus.RxBusActivity" />
+        <activity android:name="com.yw.yw.action.view.recyclerview.RecyclerDemoActivity" />
+        <activity android:name="com.yw.yw.action.java.reflect.ReflectActivity" />
+        <activity android:name="com.yw.yw.action.java.dynamicproxy.ProxyActivity" />
+        <activity android:name="com.yw.yw.action.java.generic.GenericActivity" />
+        <activity android:name="com.yw.yw.action.retrofit.RetrofitActivity" />
+        <activity android:name="com.yw.yw.action.okhttp.OkhttpDemoActivity" />
+        <activity android:name="com.yw.yw.action.java.classloader.ClassLoaderActivity" />
+        <activity android:name="com.yw.yw.action.ssl.SslActivity" />
+        <activity android:name="com.yw.yw.action.view.CoordinatorLayout.CoordinatorActivity" />
+        <activity android:name="com.yw.yw.action.view.ConstraintLayout.ConstraintActivity" />
+        <activity android:name="com.yw.yw.action.java.generic.GenericInterfaceActivity" />
+        <activity android:name="com.yw.yw.action.java.arithmetic.ArithmeticActivity" />
+        <activity android:name="com.yw.yw.action.ReleaseActivity" />
+        <activity android:name="com.yw.yw.action.okhttp.OkIoDemoActivity" />
+        <activity android:name="com.yw.yw.action.java.collection.CollectionActivity" />
+        <activity android:name="com.yw.yw.action.view.custom.CustomActivity" />
+        <activity android:name="com.yw.yw.action.java.executor_thread.ExecutorActivity" />
+        <activity android:name="com.yw.yw.action.java.equals_hashcode.EqualsActivity" />
+        <activity android:name="com.yw.yw.action.view.listview.ListDemoActivity" />
+        <activity android:name="com.yw.yw.action.handler.HandlerDemoActivity" />
+        <activity android:name="com.yw.yw.action.OptimizeActivity" />
+        <activity android:name="com.yw.yw.action.greenDao.GreenDaoDemoActivity" />
+        <activity android:name="com.yw.yw.action.eventbus.PublicActivity" />
+        <activity android:name="com.yw.yw.action.eventbus.SubscriberActivity" />
+        <activity android:name="com.yw.yw.action.mvvm.MainActivity"></activity>
     </application>
 
 </manifest>

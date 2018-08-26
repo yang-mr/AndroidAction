@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="0dp"
-    tools:context="com.example.yw.action.view.ConstraintLayout.ConstraintActivity">
+    tools:context="com.yw.yw.action.view.ConstraintLayout.ConstraintActivity">
   <!--  <Button
         android:id="@+id/bt_01"
         android:text="my name bt1"

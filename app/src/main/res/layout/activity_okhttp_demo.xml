@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.yw.action.okhttp.OkhttpDemoActivity">
+    tools:context="com.yw.yw.action.okhttp.OkhttpDemoActivity">
     <Button
         android:id="@+id/bt_get"
         android:text="测试get请求"

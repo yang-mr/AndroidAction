@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yw.action.java.generic.GenericActivity">
+    tools:context="com.yw.yw.action.java.generic.GenericActivity">
     <Button
         android:id="@+id/bt_generic_class"
         android:text="genericClass"

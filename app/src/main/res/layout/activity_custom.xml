@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.yw.action.view.custom.CustomActivity">
-    <com.example.yw.action.view.custom.MyView
+    tools:context="com.yw.yw.action.view.custom.CustomActivity">
+    <com.yw.yw.action.view.custom.MyView
         android:id="@+id/myview"
         android:text="custom_view"
         android:background="@color/colorAccent"

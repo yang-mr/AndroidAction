@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.yw.action.WindowActivity">
+    tools:context="com.yw.yw.action.WindowActivity">
     <Button
         android:id="@+id/bt_addwindow"
         android:text="增加Window"

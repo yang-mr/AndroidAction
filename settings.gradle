@@ -1,1 +1,6 @@
-include ':app', ':drawdemo', ':fragmentdemo', ':adapterdemo', ':viewAndPropertyanim'
+include ':app',
+        ':app:idea:mvvm',
+        ':app:other:pro1',
+        ':app:other:fragmentdemo',
+        ':app:other:adapterdemo',
+        ':app:other:viewAndPropertyanim'

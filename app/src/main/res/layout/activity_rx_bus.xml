@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.yw.action.rxjava.rxbus.RxBusActivity">
+    tools:context="com.yw.yw.action.rxjava.rxbus.RxBusActivity">
     <Button
         android:id="@+id/bt_send"
         android:text="Send"
